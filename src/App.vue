@@ -1,47 +1,43 @@
 <template>
-  <div id="app" class=" main">
+  <div id="app" class="main">
     <div class="d-flex container-fluid align-items-center flex-column">
-      <h1 class="my-2" style="color:#776791">A Weather App</h1>
-    <SearchBar @clicked="onClickChild" />
+      <h1 class="my-5" style="color:#776791">A Weather App</h1>
+      <SearchBar @clicked="onClickChild" />
 
-    <div v-if="temp!=null" class="d-flex justify-content-center align-items-center row my-5">
+      <div v-if="temp!=null" class="d-flex justify-content-center align-items-center row my-5">
       
-      <div class="col-sm-12 col-md-6 d-flex justify-content-center align-items-center flex-column">
-        <h3 style="color:#776791">{{box[0].cityName}}</h3>
-        <TheCircle :weather_descriptions="weather" :temperature="temp" />
+        <div class="col-sm-12 col-md-6 d-flex justify-content-center align-items-center flex-column">
+          <h3 style="color:#776791">{{box[0].cityName}}</h3>
+          <TheCircle :weather_descriptions="weather" :temperature="temp" />
+        </div>
+      
+      
+        <div class="col-sm-12 col-md-6 d-flex justify-content-center align-items-center flex-column">
+          <h3 class="mx-3" style="color:#776791">Details</h3>
+          <Details v-for="(image,index) in img" :key="index" 
+        :imgName="require('@/assets/'+image.imgName)" 
+        :heading="image.name" 
+        :value="image.value"/>
+        </div>
+      <div class="container my-5">
+        <h3 style="color:#776791" class="mx-4 text-center" v-if="temp!=null">Cities</h3>
+        <div class="row d-flex justify-content-center">
+          <div class="col-sm-12 col-md-6 col-lg-4" v-for="(boxInfo,index) in box" :key="index">
+            <Boxes  
+          :weatherImgUrl="boxInfo.weatherImgUrl"
+          :cityName="boxInfo.cityName" 
+          :temperature="boxInfo.temp"
+          :farenheit="boxInfo.farenheit" 
+          :windSpeed="boxInfo.windSpeed"
+          :index="index" @removed="removed"/>
+          </div>
+          
       </div>
-      
-      
-      <div class="col-sm-12 col-md-6 d-flex justify-content-center align-items-center flex-column">
-        <p class="mx-3">Details</p>
-        <Details v-for="(image,index) in img" :key="index" 
-      :imgName="require('@/assets/'+image.imgName)" 
-      :heading="image.name" 
-      :value="image.value"/>
       </div>
-      
-    </div>
-    <div class="container">
-      <h3 style="color:#776791" class="mx-4">Other Cities</h3>
-      <div class="row d-flex justify-content-center">
-      <div class="col-sm-12 col-md-6 col-lg-6" v-for="(boxInfo,index) in box" :key="index">
-        <Boxes  
-      :weatherImgUrl="boxInfo.weatherImgUrl"
-      :cityName="boxInfo.cityName" 
-      :temperature="boxInfo.temp"
-      :farenheit="boxInfo.farenheit" 
-      :windSpeed="boxInfo.windSpeed"
-      :index="index" @removed="removed"/>
-      </div>
-      
-    </div>
-    </div>
-    
     </div>
     
     
-    
-    
+    </div>
   </div>
 </template>
 
@@ -203,11 +199,12 @@ export default {
 <style>
 p{
   font-size: 25px;
-  color: darkgray;
+  
 }
 .main{
   
-  height: 100vh;
+ height: 100vh;
+  /* background-color: #f7fbd8; */
   
 }
 </style>

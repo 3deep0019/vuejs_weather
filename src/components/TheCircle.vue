@@ -25,15 +25,15 @@ export default {
 
 <style scoped>
 .outer-circle{
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   background-color: rgb(230, 230, 230);
   border-radius:50% ;
   margin: 25px;
 }
 .circle{
-  width: 220px;
-  height: 220px;
+  width: 270px;
+  height: 270px;
   border: 2px solid #776791;
   border-radius: 50%;
   background-color: white;
@@ -44,9 +44,10 @@ h1{
   color:#776791
 }
 p{
-  color: rgb(184, 184, 184);
+  color: rgb(144, 144, 144);
   font-size: 15px;
   letter-spacing: 6px;
+  text-align: center;
   
 }
 

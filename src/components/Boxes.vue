@@ -9,7 +9,7 @@
               <p style="font-size:50px "><span>{{ farenheit }}</span> °F</p>
           </div>
           <hr>
-          <div class="d-flex">
+          <div class="d-flex justify-content-center">
               <div class="littleInfo">
                   <img src="@/assets/sun.png" alt="sun" class="smallImage">
                   <p><span>{{ temperature }}</span> ℃</p>
@@ -45,7 +45,7 @@ export default {
 
 <style scoped>
 .wrapper{
-    border: 1px solid lightgray;
+    border: 3.5px solid lightgray;
     border-radius: 30px;
     margin: 10px;
 }
@@ -67,6 +67,10 @@ export default {
     #removingBox{
         cursor: pointer;
         font-size: 20px;
+    }
+    hr{
+        width:70%;
+        height: 50%;
     }
    
 </style>
